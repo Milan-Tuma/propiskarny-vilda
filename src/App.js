@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './utils/firebase';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [currentUser, setCurrentUser] = useState();
+	const [notification, setNotification] = useState();
+
+	const formSubmitHandler = (e) => {
+		e.preventDefault();
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredentials) => {
+				setCurrentUser(userCredentials.user);
+				setNotification('User created');
+			})
+			.catch((error) => {
+				setNotification(error.message);
+			});
+	};
+
+	return (
+		<div className="App">
+			<form onSubmit={formSubmitHandler}>
+				<input
+					type="email"
+					placeholder="Enter email"
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+				<input
+					type="password"
+					placeholder="Enter password"
+					onChange={(e) => setPassword(e.target.value)}
+					minLength={6}
+				/>
+				<button>Sign Up</button>
+				{notification && <div>{notification}</div>}
+			</form>
+		</div>
+	);
+};
 
 export default App;
