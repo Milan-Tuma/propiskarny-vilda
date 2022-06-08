@@ -1,0 +1,57 @@
+nav {
+  max-height: 6rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding: 0.5rem 3rem;
+}
+
+.logo img {
+  width: 10rem;
+  transform: rotate(25deg);
+}
+
+.menu {
+  display: flex;
+}
+
+.menu > div {
+  padding: 0 1rem;
+}
+
+.menu > div:not(:last-child) span {
+  cursor: pointer;
+  transition: all 200ms;
+  position: relative;
+}
+.menu > div:not(:last-child):hover span::after {
+  width: 110%;
+  height: 1.25px;
+  background-color: black;
+  content: '';
+  position: absolute;
+  right: -5%;
+  bottom: -15%;
+  border-radius: 5px;
+}
+
+.lang {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.lang li {
+  padding: 0.2rem 0.3rem;
+  cursor: pointer;
+}
+
+.lang img {
+  width: 3rem;
+  height: 2rem;
+}

@@ -37,8 +37,19 @@ const Auth = () => {
 			email,
 			password
 		);
-		console.log(authData);
+		setNotification('Sign in successfully');
 		setUser(authData.user);
+	};
+
+	const googleSignInHandler = async () => {
+		const authData = await googleSignIn();
+		setNotification('Sign in successfully');
+		setUser(authData.user);
+	};
+
+	const signOutHandler = () => {
+		setUser(null);
+		setNotification('Logged out');
 	};
 
 	console.log(user);
@@ -64,7 +75,8 @@ const Auth = () => {
 				{notification && <div>{notification}</div>}
 			</form>
 			<button onClick={signInFormHandler}>Sign In</button>
-			<button onClick={() => googleSignIn()}>Sign In With Google</button>
+			<button onClick={googleSignInHandler}>Sign In With Google</button>
+			{user && <button onClick={signOutHandler}>Sign Out</button>}
 		</div>
 	);
 };

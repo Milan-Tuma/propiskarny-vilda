@@ -15,14 +15,13 @@ export const emailAuth = async (authFunc, email, password) => {
 	}
 };
 
-export const googleSignIn = () => {
-	signInWithPopup(auth, provider)
-		.then((result) => {
-			const user = result.user;
-			return user;
-		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			return errorMessage;
-		});
+export const googleSignIn = async () => {
+	try {
+		const userData = await signInWithPopup(auth, provider);
+		const user = userData.user;
+		return { user };
+	} catch (error) {
+		const errorMessage = error.message;
+		return { error: errorMessage };
+	}
 };
