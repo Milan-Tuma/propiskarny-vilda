@@ -6,15 +6,14 @@ import { LangContext } from '../../utils/context/lang-context';
 
 import classes from './Navbar.module.css';
 import Auth from '../Authentication/Auth';
+import Login from '../Authentication/Login';
 
 const navData = {
 	en: {
 		cart: 'Cart',
-		auth: 'Login',
 	},
 	cs: {
 		cart: 'Košík',
-		auth: 'Přihlášení',
 	},
 };
 
@@ -37,10 +36,7 @@ const Navbar = () => {
 						<i className="fa-solid fa-cart-shopping"></i>{' '}
 						<span>{navData[language].cart}</span>
 					</div>
-					<div onClick={() => setOpenAuth(true)}>
-						<i className="fa-solid fa-user"></i>{' '}
-						<span>{navData[language].auth}</span>
-					</div>
+					<Login lang={language} openAuth={setOpenAuth} />
 					<div>
 						<ul className={classes.lang}>
 							<li onClick={() => setLanguage('cs')}>

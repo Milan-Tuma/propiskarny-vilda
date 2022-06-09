@@ -21,7 +21,7 @@ const signInData = {
 	},
 };
 
-const SignIn = ({ lang }) => {
+const SignIn = ({ lang, onClose }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -40,6 +40,7 @@ const SignIn = ({ lang }) => {
 	const googleSignInHandler = async () => {
 		const authData = await googleSignIn();
 		setUser(authData.user);
+		onClose(false);
 	};
 
 	console.log(user);

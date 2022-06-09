@@ -26,7 +26,13 @@ const Auth = ({ lang, onClose }) => {
 	return (
 		<>
 			<div className={classes.wrapper}>
-				<div>{register ? <SignUp lang={lang} /> : <SignIn lang={lang} />}</div>
+				<div>
+					{register ? (
+						<SignUp lang={lang} onClose={onClose} />
+					) : (
+						<SignIn lang={lang} onClose={onClose} />
+					)}
+				</div>
 				<p onClick={onRegisterClick} className={classes.register}>
 					{register ? signInData[lang].sign : signInData[lang].reg}
 				</p>
