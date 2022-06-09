@@ -1,8 +1,6 @@
-// import firebaseui from 'firebaseui';
-// import firebase from 'firebase';
 import { initializeApp } from 'firebase/app';
-// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDLj-y-c-tmq7PlUH-lsVn-a1Sao-nzFW8',
@@ -16,18 +14,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-const auth = getAuth(app);
 
-// const ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-// ui.start('#firebaseui-auth-container', {
-// 	signInOptions: [
-// 		{
-// 			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-// 			requireDisplayName: false,
-// 		},
-// 	],
-// });
-
-export { auth };
+export const auth = getAuth(app);
+export const db = getDatabase(app);
