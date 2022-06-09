@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { LangContext } from '../../utils/context/lang-context';
 
 import classes from './Navbar.module.css';
-import SignIn from '../Authentication/Auth';
+import Auth from '../Authentication/Auth';
 
 const navData = {
 	en: {
@@ -53,7 +53,7 @@ const Navbar = () => {
 					</div>
 				</div>
 			</nav>
-			{openAuth && <SignIn />}
+			{openAuth && <Auth lang={language} onClose={setOpenAuth} />}
 		</>
 	);
 };
