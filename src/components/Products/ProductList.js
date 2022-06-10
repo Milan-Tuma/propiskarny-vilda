@@ -20,7 +20,6 @@ const ProductList = () => {
 
 	return (
 		<div className={classes.wrapper}>
-			<h2></h2>
 			<div className={classes.grid}>
 				{pens &&
 					pens.map((pen) => {
