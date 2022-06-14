@@ -7,21 +7,22 @@ import { LangContext } from '../../utils/context/lang-context';
 import classes from './Navbar.module.css';
 import Auth from '../Authentication/Auth';
 import Login from '../Authentication/Login';
-
-const navData = {
-	en: {
-		cart: 'Cart',
-	},
-	cs: {
-		cart: 'Košík',
-	},
-};
+import CartModal from '../Cart/CartModal';
 
 const Navbar = () => {
 	const { language, setLanguage } = useContext(LangContext);
-	const [openAuth, setOpenAuth] = useState(false);
 
-	console.log(navData[language]);
+	const [openAuth, setOpenAuth] = useState(false);
+	const [openCart, setOpenCart] = useState(false);
+
+	const navData = {
+		en: {
+			cart: 'Cart',
+		},
+		cs: {
+			cart: 'Košík',
+		},
+	};
 
 	return (
 		<>
@@ -32,7 +33,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className={classes.menu}>
-					<div>
+					<div onClick={() => setOpenCart(!openCart)}>
 						<i className="fa-solid fa-cart-shopping"></i>{' '}
 						<span>{navData[language].cart}</span>
 					</div>
@@ -50,6 +51,7 @@ const Navbar = () => {
 				</div>
 			</nav>
 			{openAuth && <Auth lang={language} onClose={setOpenAuth} />}
+			{openCart && <CartModal lang={language} onClose={setOpenCart} />}
 		</>
 	);
 };

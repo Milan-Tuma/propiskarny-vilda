@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { AuthProvider } from './utils/context/auth-context';
 import { LangProvider } from './utils/context/lang-context';
+import { CartProvider } from './utils/context/cart-context';
 
 import App from './App';
 import Layout from './components/Layout/Layout';
@@ -16,9 +17,11 @@ root.render(
 		<BrowserRouter>
 			<LangProvider>
 				<AuthProvider>
-					<Layout>
-						<App />
-					</Layout>
+					<CartProvider>
+						<Layout>
+							<App />
+						</Layout>
+					</CartProvider>
 				</AuthProvider>
 			</LangProvider>
 		</BrowserRouter>

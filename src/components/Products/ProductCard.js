@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
+import { CartContext } from '../../utils/context/cart-context';
 
 import classes from './ProductCard.module.css';
 
@@ -21,6 +23,12 @@ const productData = {
 
 const ProductCard = ({ data, language }) => {
 	const [amount, setAmount] = useState(1);
+	const { addItemToCart } = useContext(CartContext);
+
+	const clickOrderHandler = () => {
+		const newCartItem = { ...data, amount };
+		addItemToCart(newCartItem);
+	};
 
 	return (
 		<div className={classes.wrapper}>
@@ -42,7 +50,7 @@ const ProductCard = ({ data, language }) => {
 					<input
 						type="text"
 						onChange={(e) => {
-							setAmount(e.target.value);
+							setAmount(Number(e.target.value));
 						}}
 						value={amount}
 						id={`order-amount-${data.id}`}
@@ -58,7 +66,9 @@ const ProductCard = ({ data, language }) => {
 					<span>{productData[language].price}:</span> {data.price} CZK x{' '}
 					{amount} = {Number(data.price) * amount} CZK
 				</p>
-				<button className={classes.btn}>{productData[language].order}</button>
+				<button className={classes.btn} onClick={clickOrderHandler}>
+					{productData[language].order}
+				</button>
 			</div>
 		</div>
 	);
