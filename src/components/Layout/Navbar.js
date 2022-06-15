@@ -8,12 +8,13 @@ import classes from './Navbar.module.css';
 import Auth from '../Authentication/Auth';
 import Login from '../Authentication/Login';
 import CartModal from '../Cart/CartModal';
+import { CartContext } from '../../utils/context/cart-context';
 
 const Navbar = () => {
 	const { language, setLanguage } = useContext(LangContext);
+	const { cartOpen, setCartOpen } = useContext(CartContext);
 
 	const [openAuth, setOpenAuth] = useState(false);
-	const [openCart, setOpenCart] = useState(false);
 
 	const navData = {
 		en: {
@@ -33,7 +34,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className={classes.menu}>
-					<div onClick={() => setOpenCart(!openCart)}>
+					<div onClick={() => setCartOpen(!cartOpen)}>
 						<i className="fa-solid fa-cart-shopping"></i>{' '}
 						<span>{navData[language].cart}</span>
 					</div>
@@ -51,7 +52,7 @@ const Navbar = () => {
 				</div>
 			</nav>
 			{openAuth && <Auth lang={language} onClose={setOpenAuth} />}
-			{openCart && <CartModal lang={language} onClose={setOpenCart} />}
+			{cartOpen && <CartModal lang={language} />}
 		</>
 	);
 };

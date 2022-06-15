@@ -18,8 +18,9 @@ const cartData = {
 	},
 };
 
-const CartModal = ({ lang, onClose }) => {
-	const { cartItems, clearItemFromCart, cartTotal } = useContext(CartContext);
+const CartModal = ({ lang }) => {
+	const { cartItems, clearItemFromCart, cartTotal, setCartOpen } =
+		useContext(CartContext);
 
 	const clearClickHandler = (product) => {
 		clearItemFromCart(product);
@@ -51,7 +52,7 @@ const CartModal = ({ lang, onClose }) => {
 	return (
 		<>
 			<div className={classes.wrapper}>
-				{cartItems.length > 0 ? (
+				{displayCartItems.length > 0 ? (
 					<ul>{displayCartItems}</ul>
 				) : (
 					<p>{cartData[lang].empty}</p>
@@ -67,7 +68,10 @@ const CartModal = ({ lang, onClose }) => {
 					</Link>
 				</div>
 			</div>
-			<div className={classes.background} onClick={() => onClose(false)}></div>
+			<div
+				className={classes.background}
+				onClick={() => setCartOpen(false)}
+			></div>
 		</>
 	);
 };

@@ -1,0 +1,63 @@
+.card {
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.25);
+  max-width: 80rem;
+  margin: 1rem auto;
+  padding: 1rem 3rem;
+  position: relative;
+}
+
+.title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.details {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details input {
+  border: none;
+  color: grey;
+}
+
+.price {
+  color: grey;
+  width: max-content;
+  min-width: 20%;
+}
+
+.delete {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  bottom: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.delete:hover {
+  color: white;
+}
+
+.delete::after {
+  content: '';
+  position: absolute;
+  background-color: rgb(213, 29, 29);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1;
+  transform: scale(0);
+  transition: all 200ms;
+}
+
+.delete:hover::after {
+  transform: scale(1.25);
+}
