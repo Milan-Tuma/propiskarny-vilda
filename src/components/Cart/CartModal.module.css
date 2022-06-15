@@ -10,10 +10,54 @@
   position: fixed;
   right: 30px;
   top: 60px;
-  width: 25rem;
+  width: 35rem;
   z-index: 20;
   box-shadow: 2px 5px 10px -3px rgba(0,0,0,0.3);
   padding: 1rem 3rem;
   border-radius: 5px;
   background-color: white;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: minmax(60%, max-content) 1fr 25px;
+}
+
+.x-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.total-price span:first-child {
+  text-transform: uppercase;
+}
+
+.btn-wrap {
+  margin-top: 1rem;
+}
+
+.btn {
+  background-color: #444;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.1px;
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #333;
 }
