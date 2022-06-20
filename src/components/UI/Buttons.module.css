@@ -1,0 +1,64 @@
+/* STANDARD BUTTON */
+
+.btn {
+  background-color: #444;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.1px;
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.btn.google {
+  background-color: #4285F4;
+}
+
+.btn.google:hover {
+  background-color: #317af0;
+}
+
+/* ICON BUTTON */
+
+.icon-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.icon-btn.animated {
+  bottom: 1rem;
+  position: relative;
+  transition: all 200ms;
+}
+
+.icon-btn.animated:hover {
+  color: white;
+}
+
+.icon-btn.animated::after {
+  content: '';
+  position: absolute;
+  background-color: rgb(213, 29, 29);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1;
+  transform: scale(0);
+  transition: all 200ms;
+}
+
+.icon-btn.animated:hover::after {
+  transform: scale(1.25);
+}

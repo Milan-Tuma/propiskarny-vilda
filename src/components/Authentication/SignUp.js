@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { emailAuth } from '../../utils/firebase/auth';
 import { AuthContext } from '../../utils/context/auth-context';
+import { StdButton } from '../UI/Buttons';
 
 import classes from './SignUp.module.css';
 
@@ -58,7 +59,7 @@ const SignUp = ({ lang, onClose }) => {
 						minLength={6}
 					/>
 				</div>
-				<button className={classes.btn}>{signUpData[lang].btn1}</button>
+				<StdButton>{signUpData[lang].btn1}</StdButton>
 			</form>
 		</div>
 	);

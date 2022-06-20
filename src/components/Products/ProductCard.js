@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 
 import { CartContext } from '../../utils/context/cart-context';
+import { StdButton } from '../UI/Buttons';
 
 import classes from './ProductCard.module.css';
 
@@ -66,9 +67,11 @@ const ProductCard = ({ data, language }) => {
 					<span>{productData[language].price}:</span> {data.price} CZK x{' '}
 					{amount} = {Number(data.price) * amount} CZK
 				</p>
-				<button className={classes.btn} onClick={clickOrderHandler}>
-					{productData[language].order}
-				</button>
+				<div style={{ flex: 1 }}>
+					<StdButton onClick={clickOrderHandler}>
+						{productData[language].order}
+					</StdButton>
+				</div>
 			</div>
 		</div>
 	);

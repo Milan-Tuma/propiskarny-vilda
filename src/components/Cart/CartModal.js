@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { CartContext } from '../../utils/context/cart-context';
+import { IconButton, StdButton } from '../UI/Buttons';
 
 import classes from './CartModal.module.css';
 
@@ -39,12 +40,9 @@ const CartModal = ({ lang }) => {
 			<li key={cartItem.id} className={classes.item}>
 				<span>{cartItem.lang[lang].productName}</span>
 				<span>x {cartItem.amount}</span>
-				<button
-					className={classes['x-btn']}
-					onClick={() => clearClickHandler(cartItem)}
-				>
-					<i className="fa-solid fa-xmark"></i>
-				</button>
+				<IconButton onClick={() => clearClickHandler(cartItem)}>
+					<i className="fa-solid fa-xmark" />
+				</IconButton>
 			</li>
 		);
 	});
@@ -64,7 +62,7 @@ const CartModal = ({ lang }) => {
 				</div>
 				<div className={classes['btn-wrap']}>
 					<Link to={'/shopping-cart'}>
-						<button className={classes.btn}>{cartData[lang].btn}</button>
+						<StdButton>{cartData[lang].btn}</StdButton>
 					</Link>
 				</div>
 			</div>

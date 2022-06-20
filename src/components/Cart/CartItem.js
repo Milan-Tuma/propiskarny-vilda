@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 
 import { CartContext } from '../../utils/context/cart-context';
+import { IconButton } from '../UI/Buttons';
 
 import classes from './CartItem.module.css';
 
@@ -19,13 +20,13 @@ const CartItem = ({ item, lang, cartData }) => {
 				<span>
 					<input value={amount} onChange={(e) => setAmount(e.target.value)} />
 				</span>
-				<button
+				<IconButton
 					onClick={() => clearItemFromCart(item)}
 					aria-label={cartData[lang].delete}
-					className={classes.delete}
+					animated={true}
 				>
-					<i className="fa-solid fa-trash"></i>
-				</button>
+					<i className="fa-solid fa-trash" />
+				</IconButton>
 			</p>
 		</li>
 	);

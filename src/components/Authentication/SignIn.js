@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { AuthContext } from '../../utils/context/auth-context';
 import { emailAuth, googleSignIn } from '../../utils/firebase/auth';
+import { StdButton } from '../UI/Buttons';
 
 import classes from './SignIn.module.css';
 
@@ -65,14 +66,11 @@ const SignIn = ({ lang, onClose }) => {
 						minLength={6}
 					/>
 				</div>
-				<button className={classes.btn}>{signInData[lang].btn1}</button>
+				<StdButton>{signInData[lang].btn1}</StdButton>
 			</form>
-			<button
-				className={`${classes.btn} ${classes['btn-google']}`}
-				onClick={googleSignInHandler}
-			>
+			<StdButton onClick={googleSignInHandler} color="google">
 				{signInData[lang].btn2}
-			</button>
+			</StdButton>
 		</div>
 	);
 };

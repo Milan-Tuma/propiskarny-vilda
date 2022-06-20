@@ -16,29 +16,3 @@
 .formInput {
   padding-bottom: 2rem;
 }
-
-.btn {
-  background-color: #444;
-  color: white;
-  font-weight: 500;
-  font-size: 1.5rem;
-  letter-spacing: -0.1px;
-  border: none;
-  border-radius: 2px;
-  width: 100%;
-  padding: 1rem 0;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn:hover {
-  background-color: #333;
-}
-
-.btn-google {
-  background-color: #4285F4;
-}
-
-.btn-google:hover {
-  background-color: #317af0;
-}

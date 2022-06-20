@@ -29,35 +29,3 @@
   width: max-content;
   min-width: 20%;
 }
-
-.delete {
-  border: none;
-  background-color: transparent;
-  font-size: 2rem;
-  bottom: 1rem;
-  position: relative;
-  cursor: pointer;
-  transition: all 200ms;
-}
-
-.delete:hover {
-  color: white;
-}
-
-.delete::after {
-  content: '';
-  position: absolute;
-  background-color: rgb(213, 29, 29);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  z-index: -1;
-  transform: scale(0);
-  transition: all 200ms;
-}
-
-.delete:hover::after {
-  transform: scale(1.25);
-}

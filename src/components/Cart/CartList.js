@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+
 import CartItem from './CartItem';
+import { StdButton } from '../UI/Buttons';
 
 import classes from './CartList.module.css';
 
@@ -42,9 +44,11 @@ const CartList = ({ lang, items }) => {
 			) : (
 				<div className={classes.empty}>
 					<p>{cartData[lang].empty}</p>
-					<Link to={'/'}>
-						<p className={classes.btn}>{cartData[lang].btn}</p>
-					</Link>
+					<div style={{ width: '20rem' }}>
+						<Link to={'/'}>
+							<StdButton>{cartData[lang].btn}</StdButton>
+						</Link>
+					</div>
 				</div>
 			)}
 		</div>
