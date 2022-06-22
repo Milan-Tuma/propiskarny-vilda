@@ -22,9 +22,11 @@ const productData = {
 	},
 };
 
-const ProductCard = ({ data, language }) => {
+const ProductCard = ({ data, language, index }) => {
 	const [amount, setAmount] = useState(1);
 	const { addItemToCart } = useContext(CartContext);
+
+	const odd = index % 2 !== 0;
 
 	const clickOrderHandler = () => {
 		const newCartItem = { ...data, amount };
@@ -33,45 +35,69 @@ const ProductCard = ({ data, language }) => {
 
 	return (
 		<div className={classes.wrapper}>
-			<div className={classes.image}>
-				<img src={data.imageUrl} alt={data.lang[language].productName} />
-			</div>
-			<div className={classes.control}>
+			<div className={`${classes.content} ${odd ? classes.odd : ''}`}>
 				<h2>{data.lang[language].productName}</h2>
+				<p>{data.lang[language].description}</p>
 				<div className={classes['amount-control']}>
-					<label htmlFor={`order-amount-${data.id}`}>
-						{productData[language].label}
-					</label>
 					<button
-						aria-label={productData[language].btnsubs}
-						onClick={() => setAmount(amount - 1)}
+						className={classes['btn-default']}
+						onClick={() => setAmount(100)}
 					>
-						<i className="fa-solid fa-chevron-left" />
+						100
 					</button>
-					<input
-						type="text"
-						onChange={(e) => {
-							setAmount(Number(e.target.value));
-						}}
-						value={amount}
-						id={`order-amount-${data.id}`}
-					/>
 					<button
-						aria-label={productData[language].btnadd}
-						onClick={() => setAmount(amount + 1)}
+						className={classes['btn-default']}
+						onClick={() => setAmount(500)}
 					>
-						<i className="fa-solid fa-chevron-right" />
+						500
 					</button>
+					<button
+						className={classes['btn-default']}
+						onClick={() => setAmount(1000)}
+					>
+						1000
+					</button>
+					<div className={classes.amount}>
+						<button
+							aria-label={productData[language].btnsubs}
+							onClick={() => setAmount(amount - 1)}
+						>
+							<i className="fa-solid fa-chevron-left" />
+						</button>
+						<input
+							type="text"
+							onChange={(e) => {
+								setAmount(Number(e.target.value));
+							}}
+							value={amount}
+							id={`order-amount-${data.id}`}
+						/>
+						<button
+							aria-label={productData[language].btnadd}
+							onClick={() => setAmount(amount + 1)}
+						>
+							<i className="fa-solid fa-chevron-right" />
+						</button>
+					</div>
 				</div>
-				<p className={classes.price}>
-					<span>{productData[language].price}:</span> {data.price} CZK x{' '}
-					{amount} = {Number(data.price) * amount} CZK
-				</p>
-				<div style={{ flex: 1 }}>
+				<div>
+					<hr />
+					<p className={classes['price-detail']}>
+						{amount} &times; {data.price} &times; discount
+					</p>
+					<p className={classes['price-total']}>
+						<span>{productData[language].price}</span>
+						<span>{amount * data.price} Kč</span>
+					</p>
+				</div>
+				<div className={classes.cta}>
 					<StdButton onClick={clickOrderHandler}>
 						{productData[language].order}
 					</StdButton>
 				</div>
+			</div>
+			<div className={classes.image}>
+				<img src={data.imageUrl} alt={data.lang[language].productName} />
 			</div>
 		</div>
 	);
