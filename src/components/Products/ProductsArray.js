@@ -11,9 +11,43 @@ import classes from './ProductsArray.module.css';
 const productData = {
 	en: {
 		title: 'Suitable pens for your business',
+		data: [
+			{
+				icon: 'fa-solid fa-certificate',
+				content:
+					'As manufacturer we are compliant with ISO norms and other certificates.',
+			},
+			{
+				icon: 'fa-solid fa-award',
+				content:
+					'Design and user acceptance are key of each product. Our pens are proven by customers.',
+			},
+			{
+				icon: 'fa-solid fa-earth-europe',
+				content:
+					'All of our products are made from recycled materials, which are environment friendly.',
+			},
+		],
 	},
 	cs: {
 		title: 'Propisky pro vaši společnost',
+		data: [
+			{
+				icon: 'fa-solid fa-certificate',
+				content:
+					'Jako výrobce splňujeme ISO normy a certifikáty spojené s výrobou.',
+			},
+			{
+				icon: 'fa-solid fa-award',
+				content:
+					'Design i uživatelská přívětivost je základ každého produktu. Naše propisky jsou ověřené zákazníky.',
+			},
+			{
+				icon: 'fa-solid fa-earth-europe',
+				content:
+					'Všechny naše produkty jsou vyrobené z recyklovatelných materiálů, které jsou šetrné k přírodě.',
+			},
+		],
 	},
 };
 
@@ -46,7 +80,7 @@ const ProductArray = () => {
 					})}
 			</div>
 			<div>
-				<TrustBanner />
+				<TrustBanner data={productData[language].data} />
 			</div>
 		</div>
 	);

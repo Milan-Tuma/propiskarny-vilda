@@ -1,14 +1,16 @@
-const TrustBanner = () => {
-	return (
-		<div>
-			You can trust us
-			<i className="fa-solid fa-file-certificate" />
-			Fast
-			<i className="fa-solid fa-cart-shopping-fast" />
-			Eco
-			<i className="fa-solid fa-leaf" />
-		</div>
-	);
+import classes from './TrustBanner.module.css';
+
+const TrustBanner = ({ data = [] }) => {
+	const items = data.map((item) => {
+		return (
+			<div className={classes.item}>
+				<i className={item.icon} />
+				<p>{item.content}</p>
+			</div>
+		);
+	});
+
+	return <div className={classes.grid}>{items}</div>;
 };
 
 export default TrustBanner;

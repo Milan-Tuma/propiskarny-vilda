@@ -1,0 +1,17 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: 0 auto;
+	text-align: center;
+}
+
+.item {
+	padding: 1rem 5rem;
+}
+
+.item i {
+	font-size: 4rem;
+	background: linear-gradient(135deg, black, grey);
+	background-clip: text;
+	color: transparent;
+}
