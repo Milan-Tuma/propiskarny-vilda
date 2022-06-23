@@ -1,6 +1,11 @@
-.footer {
-  margin-top: auto;
-  width: 100%;
-  background-color: black;
-  color: white;
+.background {
+	margin-top: auto;
+	width: 100%;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.85),
+		rgba(0, 0, 0, 0.95)
+	);
+	color: white;
+	padding: 5rem 0;
 }

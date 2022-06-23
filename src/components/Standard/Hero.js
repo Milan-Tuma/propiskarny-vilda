@@ -8,16 +8,12 @@ const heroData = {
 		header: 'Individualize pens according to your needs',
 		subheader: 'All products can be further customized.',
 		btn: 'Visit our e-shop',
-		aboutUs:
-			'Our journey started with a high school project for two students, who turned out to be co-founders of pen manufacturing company Vilda Ltd. Since then the company faced many challenges and opportunities until we became a stable manufacturer in the market with the highest competitiveness.',
 	},
 	cs: {
 		imageAlt: 'Úvodní obrázek',
 		header: 'Unikátní propisky dle vašich představ',
 		subheader: 'Všechny produkty je možné dále upravit.',
 		btn: 'Navštivte náš e-shop',
-		aboutUs:
-			'Naše cesta započala středoškolním projektem pro dva studenty, kteří se stali spoluzakladateli Propiskáren Vilda s.r.o. Od této chvíle čelila naše společnost mnoha výzvám a příležitostem, až se nakonec stala stabilním výrobcem na trhu s nejvyšší konkurenceschopností.',
 	},
 };
 

@@ -3,7 +3,7 @@ import classes from './TrustBanner.module.css';
 const TrustBanner = ({ data = [] }) => {
 	const items = data.map((item) => {
 		return (
-			<div className={classes.item}>
+			<div className={classes.item} key={item.icon}>
 				<i className={item.icon} />
 				<p>{item.content}</p>
 			</div>

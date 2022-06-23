@@ -13,7 +13,7 @@ const productData = {
 		title: 'Suitable pens for your business',
 		data: [
 			{
-				icon: 'fa-solid fa-certificate',
+				icon: 'fa-solid fa-circle-check',
 				content:
 					'As manufacturer we are compliant with ISO norms and other certificates.',
 			},
